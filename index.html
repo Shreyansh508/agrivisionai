@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriVisionAI — AI Crop Price Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="app-header">
+      <div class="brand-mark" aria-hidden="true"><span>⌁</span></div>
+      <div><p class="eyebrow">AI CROP PRICE ADVISOR</p><h1>AgriVisionAI</h1></div>
+      <button class="language" aria-label="Change language">हि</button>
+    </section>
+
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div><p class="hero-kicker">Grow smarter, sell better</p><h2>Find the best market<br>for your harvest.</h2><p>Compare nearby mandi prices and make every crop count.</p></div>
+        <div class="sun-field" aria-hidden="true"><span class="sun">☀</span><span class="sprout">🌾</span></div>
+      </div>
+
+      <form id="search-form" class="search-card">
+        <label>What are you selling?
+          <span class="select-wrap"><select id="crop"><option value="Rice">Rice</option><option value="Wheat">Wheat</option><option value="Tomato">Tomato</option><option value="Cotton">Cotton</option><option value="Onion">Onion</option><option value="Potato">Potato</option><option value="Maize">Maize</option><option value="Banana">Banana</option><option value="Mango">Mango</option><option value="Grapes">Grapes</option></select></span>
+        </label>
+        <div class="form-grid">
+          <label>State
+            <span class="select-wrap"><select id="state"><option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option><option value="Bihar">Bihar</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option><option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharashtra" selected>Maharashtra</option><option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Odisha">Odisha</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Telangana">Telangana</option><option value="Tripura">Tripura</option><option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttarakhand">Uttarakhand</option><option value="West Bengal">West Bengal</option></select></span>
+          </label>
+          <label>District
+            <span class="select-wrap"><select id="district"><option>Nashik</option><option>Pune</option><option>Nagpur</option><option>Ahmednagar</option></select></span>
+          </label>
+        </div>
+        <button class="primary" type="submit">Get market prices <span>→</span></button>
+      </form>
+
+      <div class="notice"><span class="notice-icon">↗</span><span><strong>Market update</strong><br><span id="home-alert">Rice price increased by ₹120 today.</span></span></div>
+      <p class="disclaimer">Prices are indicative. Check with your local market before selling.</p>
+    </section>
+
+    <section id="results" class="screen">
+      <button class="back" data-screen="home">← Back to search</button>
+      <div class="results-title"><div><p class="eyebrow">TODAY'S MARKET PRICES</p><h2><span id="chosen-crop">Rice</span> near <span id="chosen-district">Nashik</span></h2></div><span class="today">Today<br><strong id="today-date">31 Jul</strong></span></div>
+      <p id="price-status" class="data-status" role="status"></p>
+      <div id="best-card" class="best-card"></div>
+      <div class="section-label"><span>Other nearby markets</span><span>PRICE / QUINTAL</span></div>
+      <div id="market-list" class="market-list"></div>
+      <div class="sell-tip"><span>✦</span><p><strong>Smart tip</strong><br>Higher prices may be worth a longer trip when you have a large load.</p></div>
+    </section>
+
+    <section id="trends" class="screen">
+      <div class="page-intro"><p class="eyebrow">PRICE INTELLIGENCE</p><h2><span id="trend-crop">Rice</span> price trend</h2><p>Average market price in your selected area.</p></div>
+      <div class="summary-grid"><article><span>Yesterday</span><strong id="yesterday-price">₹2,380</strong><small>per quintal</small></article><article class="today-summary"><span>Today</span><strong id="today-price">₹2,500</strong><small id="change-price">↑ ₹120</small></article></div>
+      <article class="chart-card"><div class="chart-heading"><div><strong>Weekly movement</strong><p>₹ / quintal</p></div><span class="gain">↑ 5.0% this week</span></div><div class="chart-wrap"><div class="grid-lines"><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 320 150" preserveAspectRatio="none" aria-label="Weekly price chart"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3ea36a" stop-opacity=".28"/><stop offset="1" stop-color="#3ea36a" stop-opacity="0"/></linearGradient></defs><path id="area" fill="url(#fill)" d="M0,118 L53,102 L106,108 L160,71 L213,86 L266,45 L320,24 L320,150 L0,150 Z"></path><path id="line" fill="none" stroke="#217a4d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M0,118 L53,102 L106,108 L160,71 L213,86 L266,45 L320,24"></path><circle id="chart-dot" cx="320" cy="24" r="5" fill="#217a4d" stroke="white" stroke-width="3"/></svg></div><div class="days"><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Today</span></div></article>
+      <div class="trend-note"><span>↗</span><p><strong>Prices are rising</strong><br>Consider selling in the next 1–2 days if the trend continues.</p></div>
+    </section>
+
+    <section id="weather" class="screen">
+      <div class="page-intro"><p class="eyebrow">FARM WEATHER</p><h2>Good morning, farmer.</h2><p id="weather-location">Nashik, Maharashtra · 31 July</p></div>
+      <article class="weather-card"><div><p id="weather-condition">PARTLY CLOUDY</p><strong id="temperature">29°</strong><span id="feels-like">Feels like 31°</span></div><div id="weather-icon" class="weather-art">⛅</div><div class="weather-bottom"><span>💧 Humidity <strong id="humidity">68%</strong></span><span>↗ Wind <strong id="wind">12 km/h</strong></span></div></article>
+      <div class="weather-section"><h3>Rain chance</h3><div class="rain-row"><span>Now</span><div><i id="rain-now-bar" style="width:24%"></i></div><strong id="rain-now">24%</strong></div><div class="rain-row"><span>3 PM</span><div><i id="rain-three-bar" style="width:35%"></i></div><strong id="rain-three">35%</strong></div><div class="rain-row"><span>6 PM</span><div><i id="rain-six-bar" style="width:62%"></i></div><strong id="rain-six">62%</strong></div></div>
+      <div class="weather-tip"><span>☂</span><p><strong>Plan for rain this evening</strong><br>Bring harvested crops indoors before 5 PM.</p></div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Main navigation"><button class="nav-item selected" data-screen="home"><span>⌂</span>Home</button><button class="nav-item" data-screen="results"><span>▤</span>Markets</button><button class="nav-item" data-screen="trends"><span>⌁</span>Trends</button><button class="nav-item" data-screen="weather"><span>☀</span>Weather</button></nav>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
